@@ -16,6 +16,17 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: mongopw
     volumes:
       - mongodata:/var/lib/mongodb/data
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      RABBITMQ_DEFAULT_USER: rabbitmq
+      RABBITMQ_DEFAULT_PASS: rabbitmq
+    volumes:
+      - rabbitmqdata:/var/lib/rabbitmq/data
 volumes:
   pgdata:
   mongodata:
+  rabbitmqdata:
