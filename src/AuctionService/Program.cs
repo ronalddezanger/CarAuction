@@ -1,3 +1,4 @@
+using AuctionService;
 using AuctionService.Data;
 using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -18,6 +19,8 @@ builder.Services.AddMassTransit( x =>
         o.UsePostgres();
         o.UseBusOutbox();
     });
+
+    x.AddConsumersFromNamespaceContaining<AuctionFinishedConsumer>();
 
     x.UsingRabbitMq((context, cfg) =>
     {
