@@ -19,10 +19,10 @@ builder.Services.AddMassTransit( x =>
     x.UsingRabbitMq((context, cfg) =>
     {
         // username and pasword to login to rabbitmq
-        cfg.Host("localhost", "/", h =>
+        cfg.Host(builder.Configuration["RabbitMq:Host"], "/", h =>
         {
-            h.Username("rabbitmq");
-            h.Password("rabbitmq");
+            h.Username(builder.Configuration.GetValue("RabbitMq:Username", "rabbitmq"));
+            h.Password(builder.Configuration.GetValue("RabbitMq:Password", "rabbitmq"));
         });
         cfg.ReceiveEndpoint("search-auction-created", e =>
             {
