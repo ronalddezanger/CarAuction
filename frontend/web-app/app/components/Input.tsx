@@ -5,7 +5,7 @@ import { UseControllerProps, useController } from 'react-hook-form'
 type Props = {
     label: string
     type?: string
-    showLabel?: string
+    showLabel?: boolean
 } & UseControllerProps
 
 export default function Input(props: Props) {

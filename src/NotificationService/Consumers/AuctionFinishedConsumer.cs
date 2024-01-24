@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace NotificationService;
 
-public class AuctionFinishedConsumer : IConsumer<AuctionCreated>
+public class AuctionFinishedConsumer : IConsumer<AuctionFinished>
 {
     private readonly IHubContext<NotificationHub> _hubContext;
 
@@ -13,9 +13,9 @@ public class AuctionFinishedConsumer : IConsumer<AuctionCreated>
         _hubContext = hubContext;
     }
 
-    public async Task Consume(ConsumeContext<AuctionCreated> context)
+    public async Task Consume(ConsumeContext<AuctionFinished> context)
     {
-        Console.WriteLine($"AuctionFinishedConsumer: {context.Message.Id}");
+        Console.WriteLine($"AuctionFinishedConsumer: {context.Message.AuctionId}");
         await _hubContext.Clients.All.SendAsync("AuctionFinished", context.Message);
     }
 }

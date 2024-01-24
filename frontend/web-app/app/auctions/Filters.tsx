@@ -9,7 +9,7 @@ const pageSizeButtons = [4, 8, 12];
 
 const orderButtons = [
     {
-        label: 'Asc',
+        label: 'Alphabetical',
         icon: AiOutlineSortAscending,
         value: 'make'
     },
@@ -27,12 +27,12 @@ const orderButtons = [
 
 const filterButtons = [
     {
-        label: 'Live auctions',
+        label: 'Live Auctions',
         icon: GiFlame,
         value: 'live'
     },
     {
-        label: 'Endng < 6 hours',
+        label: 'Ending < 6 hours',
         icon: GiFinishLine,
         value: 'endingSoon'
     },

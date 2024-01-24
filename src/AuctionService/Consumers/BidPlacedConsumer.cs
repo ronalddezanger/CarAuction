@@ -28,6 +28,5 @@ public class BidPlacedConsumer : IConsumer<BidPlaced>
         }
 
 
-        await _dbContext.SaveChangesAsync();
     }
 }

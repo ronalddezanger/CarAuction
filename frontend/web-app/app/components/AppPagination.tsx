@@ -4,8 +4,8 @@ import { Pagination } from 'flowbite-react'
 import React, { useState } from 'react'
 
 type Props = {
-    currentPage: number,
-    pageCount: number,
+    currentPage: number
+    pageCount: number
     pageChanged: (page: number) => void;
 }
 
